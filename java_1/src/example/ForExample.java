@@ -54,9 +54,23 @@ public class ForExample {
 		// 7 * 8 = 56
 		// 7 * 9 = 63
 
+		int num = 7;
+
+		for (int i = 0; i < 9; i++) {
+			System.out.println("7 * " + (i + 1) + " = " + num * (i + 1));
+		}
+
 		System.out.println("=========================================");
 		// 5!의 결과값을 출력하세요.(5! = 5 * 4 * 3 * 2 * 1)
 		// ex) 5! = 120
+
+		int factorialNum = 5;
+
+		System.out.print(factorialNum + "! = " + factorialNum);
+		for (int i = factorialNum; i > 1; i--) {
+			System.out.print(" * " + (i - 1));
+		}
+		System.out.println();
 
 		System.out.println("=========================================");
 		// 두 변수에 저장된 정수값 사이의 정수들을 화면에 출력하세요.
