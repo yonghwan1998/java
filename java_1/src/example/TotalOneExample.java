@@ -26,5 +26,6 @@ public class TotalOneExample {
 			break;
 		}
 		System.out.println("[결과] 합계 = " + sum);
+		scanner.close();
 	}
 }
