@@ -10,8 +10,11 @@ public class IfExample {
 			System.out.println("mun = " + (char) (mun - 32));
 		} else {
 			System.out.println("mun = " + mun);
-
 		}
+
+//		if (mun >= 'a' && mun <= 'z') {
+//			mun -= 32;
+//		}
 
 		System.out.println("============================================================");
 		// 변수에 저장된 정수값이 4의 배수인지 아닌지를 구분하여 출력하세요.
@@ -28,7 +31,7 @@ public class IfExample {
 		// => 년도를 4로 나누어 나머지가 0인 경우 윤년
 		// => 위 조건을 만족하는 년도 중 100으로 나누어 나머지가 0인 경우 평년
 		// => 위 조건을 만족하는 년도 중 400으로 나누어 나머지가 0인 경우 윤년
-		int year = 2023;
+		int year = 2000;
 
 		int number4 = 4;
 		int number100 = 100;
@@ -38,10 +41,10 @@ public class IfExample {
 		number100 = year % number100;
 		number400 = year % number400;
 
-		if (number4 == 0 && number100 != 0 && number400 == 0) {
-			System.out.println("윤년입니다.");
+		if (number4 == 0 && number100 != 0 || number400 == 0) {
+			System.out.println(year + "년은 윤년입니다.");
 		} else {
-			System.out.println("평년입니다.");
+			System.out.println(year + "년은 평년입니다.");
 		}
 
 		System.out.println("============================================================");
@@ -55,7 +58,7 @@ public class IfExample {
 		int kor = 89, eng = 93, mat = 95;
 		int total = 0;
 		double average = 0;
-		String score = "";
+		String grade = "";
 
 		if (kor < 0 || kor > 100) {
 			System.out.println("잘못된 점수가 입력됐습니다.");
@@ -71,19 +74,19 @@ public class IfExample {
 			average = (int) ((total / 3.0) * 100) / 100.0;
 
 			if (average >= 90) {
-				score = "A";
+				grade = "A";
 			} else if (average >= 80) {
-				score = "B";
+				grade = "B";
 			} else if (average >= 70) {
-				score = "C";
+				grade = "C";
 			} else if (average >= 60) {
-				score = "D";
+				grade = "D";
 			} else {
-				score = "F";
+				grade = "F";
 			}
 		}
 
-		System.out.println("이름 : " + name + ", 총점 : " + total + ", 평균 : " + average + ", 학점 : " + score);
+		System.out.println("이름 : " + name + ", 총점 : " + total + ", 평균 : " + average + ", 학점 : " + grade);
 
 		System.out.println("============================================================");
 	}
