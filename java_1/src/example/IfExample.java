@@ -59,15 +59,21 @@ public class IfExample {
 		int total = 0;
 		double average = 0;
 		String grade = "";
+		boolean valid = false;
 
 		if (kor < 0 || kor > 100) {
 			System.out.println("국어 점수가 잘못 입력됐습니다.");
-			System.exit(0);
-		} else if (eng < 0 || eng > 100) {
+			valid = true;
+		}
+		if (eng < 0 || eng > 100) {
 			System.out.println("영어 점수가 잘못 입력됐습니다.");
-			System.exit(0);
-		} else if (mat < 0 || mat > 100) {
+			valid = true;
+		}
+		if (mat < 0 || mat > 100) {
 			System.out.println("수학 점수가 잘못 입력됐습니다.");
+			valid = true;
+		}
+		if (valid) {
 			System.exit(0);
 		} else {
 			total = kor + eng + mat;
