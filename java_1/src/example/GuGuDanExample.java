@@ -27,5 +27,6 @@ public class GuGuDanExample {
 				System.out.println("error : [2 ~ 9]의 정수값을 입력해주세요.");
 			}
 		}
+		scanner.close();
 	}
 }
