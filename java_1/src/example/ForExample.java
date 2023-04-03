@@ -75,12 +75,24 @@ public class ForExample {
 		System.out.println("=========================================");
 		// 두 변수에 저장된 정수값 사이의 정수들을 화면에 출력하세요.
 		// 단, 한 줄에 정수값이 7개씩 출력되도록 프로그램을 작성하세요.
-		// ex) 36 27 38 39 40 41 42
+		// ex)
+		// 36 37 38 39 40 41 42
 		// 43 44 45 46 47 48 49
 		// 50 51 52 53 54 55 56
 		// 57
 		int begin = 36, end = 57;
+		int count = 0;
 
+		for (int i = begin; i <= end; i++) {
+			System.out.print(i + " ");
+			count += 1;
+			if (count == 7) {
+				System.out.println();
+				count = 0;
+			}
+		}
+
+		System.out.println();
 		System.out.println("=========================================");
 	}
 }
