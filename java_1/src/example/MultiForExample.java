@@ -62,10 +62,11 @@ public class MultiForExample {
 		// ☆★☆★☆
 		// ★☆☆☆★
 
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 5; j++) {
-				int temp = i - j;
-				if (temp == -4 || temp == -2 || temp == 0 || temp == 2 || temp == 4) {
+		for (int i = 1; i <= 5; i++) {
+			for (int j = 1; j <= 5; j++) {
+				int tempP = i + j;
+				int tempM = i - j;
+				if (tempM == 0 || tempP == 6) {
 					System.out.print(star);
 				} else {
 					System.out.print(emptyStar);
