@@ -1,7 +1,5 @@
 package example;
 
-import java.util.Iterator;
-
 public class MultiForExample {
 	public static void main(String[] args) {
 		String star = "★";
