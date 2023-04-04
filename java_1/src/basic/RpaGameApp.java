@@ -33,20 +33,20 @@ public class RpaGameApp {
 			}
 
 			// 컴퓨터와 사용자의 가위바위보 출력
-			System.out.print("[입력]컴퓨터 >> ");
+			System.out.print("[입력] 컴퓨터 >> ");
 			switch (computer) {
 			case 1:
-				System.out.print("가위");
+				System.out.println("가위");
 				break;
 			case 2:
-				System.out.print("바위");
+				System.out.println("바위");
 				break;
 			case 3:
-				System.out.print("보");
+				System.out.println("보");
 				break;
 			}
 
-			System.out.print(", 사용자 >> ");
+			System.out.print("[입력] 사용자 >> ");
 			switch (user) {
 			case 1:
 				System.out.print("가위");
@@ -63,10 +63,10 @@ public class RpaGameApp {
 			// 컴퓨터와 사용자의 가위바위보 대결의 승패를 판단하여 결과 출력
 			if (computer == user) {
 			} else if (computer == 1 && user == 2 || computer == 2 && user == 3 || computer == 3 && user == 1) {
-				System.out.println("[결과]사용자가 컴퓨터에게 이겼습니다.");
+				System.out.println("[결과] 사용자가 컴퓨터에게 이겼습니다.");
 				count++;// 승리횟수 1 증가
 			} else {
-				System.out.println("[결과]사용자가 컴퓨터에게 졌습니다.");
+				System.out.println("[결과] 사용자가 컴퓨터에게 졌습니다.");
 				break;// 대결 종료 >> 반복문 종료
 			}
 			System.out.println();
