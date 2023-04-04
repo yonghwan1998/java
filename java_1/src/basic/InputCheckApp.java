@@ -20,6 +20,7 @@ public class InputCheckApp {
 				System.out.println("[에러]점수는 0 ~ 100 범위의 점수값만 입력 가능");
 			}
 		}
+		scanner.close();
 
 		switch (score / 10) {
 		case 10:
@@ -39,7 +40,6 @@ public class InputCheckApp {
 			grade = "F";
 			break;
 		}
-
 		System.out.println("점수 : " + score + "는 학점 : " + grade + "입니다.");
 	}
 }
