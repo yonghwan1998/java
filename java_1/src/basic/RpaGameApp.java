@@ -25,7 +25,7 @@ public class RpaGameApp {
 			// => 입력값이 1~3 범위의 정수값이 아닌 경우 에러 메세지 출력 후 재입력
 			int user;
 			while (true) {// 입력값 검증을 위한 반복문
-				System.out.print("가위바위보[1:가위,2:바위,3:보] >> ");
+				System.out.print("가위바위보[1:가위, 2:바위, 3:보] \n>> ");
 				user = scanner.nextInt();
 				if (user >= 1 && user <= 3)
 					break;// 정상적인 값이 입력된 경우 반복문 종료
@@ -76,9 +76,9 @@ public class RpaGameApp {
 		
 		// 승리 횟수 출력
 		if (count == 0) {
-			System.out.println("[메세지]사용자가 컴퓨터에게 한번도 이기지 못했습니다.");
+			System.out.println("[메세지] 사용자가 컴퓨터에게 한번도 이기지 못했습니다.");
 		} else {
-			System.out.println("[메세지]사용자가 컴퓨터에게 " + count + "번을 연속적으로 이겼습니다.");
+			System.out.println("[메세지] 사용자가 컴퓨터에게 " + count + "번을 연속적으로 이겼습니다.");
 		}
 
 		scanner.close();
