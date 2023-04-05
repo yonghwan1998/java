@@ -14,11 +14,11 @@ public class UpAndDownExample {
 
 		Scanner scanner = new Scanner(System.in);
 		int inputNum = 0;
-		int comNum = (int) (Math.random() * 100 + 1);
+		int comNum = (int) (Math.random() * 100) + 1;
 		int failCount = 0;
 
 		start: while (true) {
-			System.out.println("(1~100) 범위의 정수를 입력하세요 >>");
+			System.out.println("(1~100) 범위의 정수를 입력하세요 \n>>");
 			inputNum = scanner.nextInt();
 			if (inputNum < 1 || inputNum > 100) {
 				continue start;
@@ -28,7 +28,7 @@ public class UpAndDownExample {
 				break;
 			}
 			else if (inputNum == comNum) {
-				System.out.println("성공! [실패회수는 " + failCount + "입니다.]");
+				System.out.println("성공! [실패 횟수는 " + failCount + "입니다.]");
 				break;
 			} else if (inputNum > comNum) {
 				failCount++;
