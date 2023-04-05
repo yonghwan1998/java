@@ -22,6 +22,7 @@ public class UpAndDownExample {
 			System.out.print("(1~100) 범위의 정수를 입력하세요. \n> ");
 			inputNum = scanner.nextInt();
 			if (inputNum < 1 || inputNum > 100) {
+				System.out.println("\n[error] 정상적이지 않은 값이 입력됐습니다.");
 				continue start;
 			}
 			if (failCount == 9) {
