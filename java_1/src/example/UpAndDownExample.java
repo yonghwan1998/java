@@ -34,13 +34,13 @@ public class UpAndDownExample {
 			} else if (inputNum > comNum) {
 				failCount++;
 				System.out.println();
-				System.out.println("현재 실패 횟수는 " + failCount + "회 입니다.(남은 도전 횟수 : " + (10 - failCount) + ")");
+				System.out.println("현재 실패 횟수는 " + failCount + "회 입니다. (남은 도전 횟수 : " + (10 - failCount) + ")");
 				System.out.println("입력된 값 : " + inputNum);
 				System.out.println("더 작은 값을 입력하세요.");
 			} else if (inputNum < comNum) {
 				failCount++;
 				System.out.println();
-				System.out.println("현재 실패 횟수는 " + failCount + "입니다.(남은 도전 횟수 : " + (10 - failCount) + ")");
+				System.out.println("현재 실패 횟수는 " + failCount + "입니다. (남은 도전 횟수 : " + (10 - failCount) + ")");
 				System.out.println("입력된 값 : " + inputNum);
 				System.out.println("더 큰 값을 입력하세요.");
 			}
