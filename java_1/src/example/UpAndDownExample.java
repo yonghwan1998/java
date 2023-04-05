@@ -18,7 +18,7 @@ public class UpAndDownExample {
 		int failCount = 0;
 
 		start: while (true) {
-			System.out.println("(1~100) 범위의 정수를 입력하세요 \n>>");
+			System.out.println("(1~100) 범위의 정수를 입력하세요 >>");
 			inputNum = scanner.nextInt();
 			if (inputNum < 1 || inputNum > 100) {
 				continue start;
