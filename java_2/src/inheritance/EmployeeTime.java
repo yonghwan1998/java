@@ -1,6 +1,6 @@
 package inheritance;
 
-//시간제 사원정보(사원번호, 사원이름, 시급, 근무시간)를 저장하기 위한 클래스
+// 시간제 사원정보(사원번호, 사원이름, 시급, 근무시간)를 저장하기 위한 클래스
 // => Employee 클래스를 상속받아 작성
 
 public class EmployeeTime extends Employee {
@@ -33,8 +33,13 @@ public class EmployeeTime extends Employee {
 		this.workedHour = workedHour;
 	}
 
-	// 급여를 반환하는 메소드
+	// 급여를 계산하여 반환하는 메소드
 	public int computeTimePay() {
+		return moneyPerHour * workedHour;
+	}
+
+	@Override
+	public int computePay() {
 		return moneyPerHour * workedHour;
 	}
 }

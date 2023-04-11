@@ -1,6 +1,6 @@
 package inheritance;
 
-//정규직 사원정보(사원번호, 사원이름, 연봉)를 저장하기 위한 클래스
+// 정규직 사원정보(사원번호, 사원이름, 연봉)를 저장하기 위한 클래스
 // => Employee 클래스를 상속받아 작성
 
 public class EmployeeRegular extends Employee {
@@ -23,8 +23,13 @@ public class EmployeeRegular extends Employee {
 		this.anuualSalary = anuualSalary;
 	}
 
-	// 급여를 반환하는 메소드
+	// 급여를 계산하여 반환하는 메소드
 	public int computeSalary() {
+		return anuualSalary / 12;
+	}
+
+	@Override
+	public int computePay() {
 		return anuualSalary / 12;
 	}
 }
