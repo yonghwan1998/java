@@ -7,10 +7,10 @@ public class OperatorExample {
 		// 245678초를 일시분초 형식으로 변환하여 출력하세요.
 
 		int initialValue = 245678;
-		int VALUE_SECOND = 1;
-		int VALUE_MINUTE = VALUE_SECOND * 60;
-		int VALUE_HOUR = VALUE_MINUTE * 60;
-		int VALUE_DAY = VALUE_HOUR * 24;
+		final int VALUE_SECOND = 1;
+		final int VALUE_MINUTE = VALUE_SECOND * 60;
+		final int VALUE_HOUR = VALUE_MINUTE * 60;
+		final int VALUE_DAY = VALUE_HOUR * 24;
 
 		int sec, min, hour, day, remain;
 
