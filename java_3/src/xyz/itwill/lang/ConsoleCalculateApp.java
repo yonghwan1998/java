@@ -44,10 +44,12 @@ public class ConsoleCalculateApp {
 		System.out.print(" >> ");
 		String inputString = scanner.nextLine().replace(" ", "");
 
-		int numPlus = inputString.indexOf("+");
-		int numMinus = inputString.indexOf("-");
-		int numMultiply = inputString.indexOf("*");
-		int numDivide = inputString.indexOf("/");
+		scanner.close();
+
+		int numPlus = inputString.lastIndexOf("+");
+		int numMinus = inputString.lastIndexOf("-");
+		int numMultiply = inputString.lastIndexOf("*");
+		int numDivide = inputString.lastIndexOf("/");
 
 		String frontNum = "";
 		String backNum = "";
@@ -75,14 +77,11 @@ public class ConsoleCalculateApp {
 				System.out.println("[error] Incorrect formula.");
 				System.exit(0);
 			}
-			
+
 			System.out.println(cal(frontNum, backNum, operator));
-			
+
 		} catch (NumberFormatException | IndexOutOfBoundsException e) {
 			System.out.println("[error] Incorrect formula.");
 		}
-
-		scanner.close();
-
 	}
 }
