@@ -10,7 +10,7 @@ import java.util.Scanner;
 // => 입력 연산식에 공백 입력이 가능하도록 처리
 public class ConsoleCalculateApp {
 
-	static String cal(String frontNum, String backNum, int operator) {
+	public static String cal(String frontNum, String backNum, int operator) {
 		Double frontNumDouble = Double.parseDouble(frontNum);
 		Double backNumDouble = Double.parseDouble(backNum);
 
