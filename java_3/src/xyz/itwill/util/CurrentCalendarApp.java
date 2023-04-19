@@ -18,9 +18,9 @@ public class CurrentCalendarApp {
 		// System.out.println("week = "+week);
 
 		System.out.println("                         " + calendar.get(Calendar.YEAR) + "년 " + (calendar.get(Calendar.MONTH) + 1) + "월");
-		System.out.println("=============================");
-		System.out.println("	일	월	화	수	목	금	토");
-		System.out.println("=============================");
+		System.out.println("==============================");
+		System.out.println("\t 일\t 월\t 화\t 수\t 목\t 금\t 토");
+		System.out.println("==============================");
 
 		// [1일]을 출력하기 전까지의 요일을 공백으로 출력
 		for (int i = 1; i < week; i++) {
@@ -33,9 +33,9 @@ public class CurrentCalendarApp {
 		for (int i = 1; i <= calendar.getActualMaximum(Calendar.DATE); i++) {
 			// 날짜 출력 >> 자릿수 맞춤
 			if (i <= 9) {
-				System.out.print("	" + i);
+				System.out.print("\t " + i);
 			} else {
-				System.out.print("	" + i);
+				System.out.print("\t" + i);
 			}
 
 			week++;
@@ -46,6 +46,6 @@ public class CurrentCalendarApp {
 
 		}
 		System.out.println();
-		System.out.println("=============================");
+		System.out.println("==============================");
 	}
 }
