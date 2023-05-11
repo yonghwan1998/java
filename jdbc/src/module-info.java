@@ -1,9 +1,3 @@
-/**
- * 
- */
-/**
- * @author Bang
- *
- */
 module jdbc {
+	requires java.se;
 }
