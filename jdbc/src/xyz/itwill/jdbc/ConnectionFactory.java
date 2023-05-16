@@ -17,9 +17,9 @@ public class ConnectionFactory {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "URL";
-			String user = "USER";
-			String password = "PASSWORD";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "scott";
+			String password = "tiger";
 			con = DriverManager.getConnection(url, user, password);
 		} catch (Exception e) {
 			System.out.println("[에러]Connection 객체를 생성할 수 없습니다.");
