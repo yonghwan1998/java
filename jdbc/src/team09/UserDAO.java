@@ -8,7 +8,7 @@ public interface UserDAO {
 	
 	int insertUser(UserDTO user);
 	int updateUser(UserDTO user);
-	int deleteUser(UserDTO user);
+	int deleteUser(int user);
 
 	UserDTO selectUser(int USER_NO);
 	
