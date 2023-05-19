@@ -49,7 +49,6 @@ public class JoinPage extends JFrame {
 		contentPane.setLayout(null);
 
 		setTitle("회원가입");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
 
@@ -83,6 +82,7 @@ public class JoinPage extends JFrame {
 
 				sendInfo(id, pw, name, Email);
 
+				dispose();
 			}
 		});
 		btnSubmit.setBounds(64, 395, 97, 23);
