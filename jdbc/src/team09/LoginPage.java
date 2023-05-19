@@ -99,10 +99,15 @@ public class LoginPage extends JFrame {
 			return;
 		}
 		if (id.equals(user.getUSER_ID()) && pw.equals(user.getUSER_PW())) {
-
-			System.out.println("Success");
-			JoinPage dialog = new JoinPage();
+			System.out.println("Login Success");
+			try {
+				MoviePage dialog = new MoviePage();
 			dialog.setVisible(true);
+				
+			} catch (Exception e) {
+				System.out.print("MoviePage 불러오기 오류 : ");
+				 e.printStackTrace();
+			}
 		} else {
 			System.out.println("Incorrect contents");
 		}
