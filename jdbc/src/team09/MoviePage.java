@@ -20,7 +20,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class UserGUIApp extends JFrame implements ActionListener {
+public class MoviePage extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
 	public static final int NONE = 0;
@@ -42,7 +42,7 @@ public class UserGUIApp extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public UserGUIApp() throws Exception {
+	public MoviePage() throws Exception {
 		setTitle("◆◆◆ 학생 관리 프로그램 ◆◆◆");
 		/*
 		 * setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); setBounds(100, 100, 450,
@@ -227,11 +227,10 @@ public class UserGUIApp extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) throws Exception {
-		new UserGUIApp();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UserGUIApp frame = new UserGUIApp();
+					MoviePage frame = new MoviePage();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
