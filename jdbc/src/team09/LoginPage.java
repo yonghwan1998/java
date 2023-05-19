@@ -92,7 +92,7 @@ public class LoginPage extends JFrame {
 
 	}
 
-	private void sendIdPw(String id, String pw) {
+	public void sendIdPw(String id, String pw) {
 		UserDTO user = UserDAOImpl.getDao().selectUser(id);
 
 		if (user == null) {

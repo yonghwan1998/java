@@ -22,7 +22,43 @@ public class UserDAOImpl extends JdbcDAO implements UserDAO {
 	public UserDAOImpl() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	// 로그인
+	@Override
+	public UserDTO selectUser(String id) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		UserDTO user = null;
+		try {
+			con = getConnection();
 
+			String sql = "select * from USER_INFO where USER_ID=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				user = new UserDTO();
+				
+				user.setUSER_NO(rs.getInt("USER_NO"));
+				user.setUSER_ID(rs.getString("USER_ID"));
+				user.setUSER_PW(rs.getString("USER_PW"));
+				user.setUSER_NAME(rs.getString("USER_NAME"));
+				user.setUSER_EMAIL(rs.getString("USER_EMAIL"));
+				
+			}
+		} catch (SQLException e) {
+			System.out.println("[에러]selectStudent() 메소드의 SQL 오류 = " + e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		return user;
+	}
+	
+	// 회원가입
 	@Override
 	public int insertUser(UserDTO user) {
 		// TODO Auto-generated method stub
@@ -52,6 +88,10 @@ public class UserDAOImpl extends JdbcDAO implements UserDAO {
 		return rows;
 	}
 
+	
+	
+	
+	
 	@Override
 	public int updateUser(UserDTO user) {
 		// TODO Auto-generated method stub
@@ -132,7 +172,7 @@ public class UserDAOImpl extends JdbcDAO implements UserDAO {
 				user.setUSER_ID(rs.getString("USER_ID"));
 				user.setUSER_PW(rs.getString("USER_PW"));
 				user.setUSER_NAME(rs.getString("USER_NAME"));
-				user.setUSER_EMAIL(rs.getString("USER_EMAIL").substring(0, 10));
+				user.setUSER_EMAIL(rs.getString("USER_EMAIL"));
 
 			}
 		} catch (SQLException e) {
@@ -171,7 +211,7 @@ public class UserDAOImpl extends JdbcDAO implements UserDAO {
 				user.setUSER_ID(rs.getString("USER_ID"));
 				user.setUSER_PW(rs.getString("USER_PW"));
 				user.setUSER_NAME(rs.getString("USER_NAME"));
-				user.setUSER_EMAIL(rs.getString("USER_EMAIL").substring(0, 10));
+				user.setUSER_EMAIL(rs.getString("USER_EMAIL"));
 
 				// DTO 객체를 List 객체의 요소로 추가
 				UserList.add(user);
@@ -207,7 +247,7 @@ public class UserDAOImpl extends JdbcDAO implements UserDAO {
 				user.setUSER_ID(rs.getString("USER_ID"));
 				user.setUSER_PW(rs.getString("USER_PW"));
 				user.setUSER_NAME(rs.getString("USER_NAME"));
-				user.setUSER_EMAIL(rs.getString("USER_EMAIL").substring(0, 10));
+				user.setUSER_EMAIL(rs.getString("USER_EMAIL"));
 
 				// DTO 객체를 List 객체의 요소로 추가
 				UserList.add(user);
@@ -222,39 +262,7 @@ public class UserDAOImpl extends JdbcDAO implements UserDAO {
 	}
 
 
-	@Override
-	public UserDTO selectUser(String id) {
-		
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		UserDTO user = null;
-		try {
-			con = getConnection();
-
-			String sql = "select * from USER_INFO where USER_ID=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);
-
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				user = new UserDTO();
-				
-				user.setUSER_NO(rs.getInt("USER_NO"));
-				user.setUSER_ID(rs.getString("USER_ID"));
-				user.setUSER_PW(rs.getString("USER_PW"));
-				user.setUSER_NAME(rs.getString("USER_NAME"));
-				user.setUSER_EMAIL(rs.getString("USER_EMAIL"));
-				
-			}
-		} catch (SQLException e) {
-			System.out.println("[에러]selectStudent() 메소드의 SQL 오류 = " + e.getMessage());
-		} finally {
-			close(con, pstmt, rs);
-		}
-		return user;
-	}
+	
 
 
 }

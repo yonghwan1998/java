@@ -7,7 +7,10 @@ import xyz.itwill.student.StudentDTO;
 public interface UserDAO {
 	
 	// 완성
+	
+	// 로그인
 	UserDTO selectUser(String id);
+	// 회원가입
 	int insertUser(UserDTO user);
 	
 	
