@@ -32,7 +32,7 @@ public class MovieDAOImpl extends JdbcDAO implements MovieDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select * from MOVIE_INFO order by no";
+			String sql = "select * from MOVIE_INFO order by MOVIE_NO";
 			pstmt = con.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
