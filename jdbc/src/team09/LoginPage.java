@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -85,6 +86,7 @@ public class LoginPage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JoinPage joinPage = new JoinPage();
+				joinPage.setLocation(700, 300);
 				joinPage.setVisible(true);
 			}
 		});
@@ -95,21 +97,23 @@ public class LoginPage extends JFrame {
 		UserDTO user = UserDAOImpl.getDao().selectUser(id);
 
 		if (user == null) {
-			System.out.println("No User");
+			// System.out.println("No User");
+			JOptionPane.showMessageDialog(this, "존재하지 않는 아이디입니다.");
 			return;
 		}
 		if (id.equals(user.getUSER_ID()) && pw.equals(user.getUSER_PW())) {
+			JOptionPane.showMessageDialog(this, "환영합니다. " + user.getUSER_NAME() + "님!");
 			try {
 				dispose();
 				MoviePage dialog = new MoviePage();
 				dialog.setVisible(true);
 
 			} catch (Exception e) {
-				System.out.print("MoviePage 불러오기 오류 : ");
+				JOptionPane.showMessageDialog(this, "나도 모르는 오류");
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("Incorrect contents");
+			JOptionPane.showMessageDialog(this, "아이디 또는 비밀번호가 틀렸습니다.");
 		}
 	}
 }
