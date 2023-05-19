@@ -22,8 +22,6 @@ public class LoginPage extends JFrame {
 	private JTextField textFieldID;
 	private JPasswordField textFieldPW;
 
-	JoinPage joinPage = new JoinPage();
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -86,6 +84,7 @@ public class LoginPage extends JFrame {
 		btnJoin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				JoinPage joinPage = new JoinPage();
 				joinPage.setVisible(true);
 			}
 		});
