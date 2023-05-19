@@ -43,7 +43,8 @@ public class MoviePage extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public MoviePage() throws Exception {
-		setTitle("◆◆◆ 학생 관리 프로그램 ◆◆◆");
+
+		setTitle("◆◆◆ 영화 관리 프로그램 ◆◆◆");
 		/*
 		 * setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); setBounds(100, 100, 450,
 		 * 300); contentPane = new JPanel(); contentPane.setBorder(new EmptyBorder(5, 5,
@@ -63,29 +64,29 @@ public class MoviePage extends JFrame implements ActionListener {
 		JPanel left = new JPanel();
 		left.setLayout(new GridLayout(5, 1));
 
-		JPanel pUSER_NO = new JPanel();
-		pUSER_NO.add(new JLabel("넘버"));
-		pUSER_NO.add(USER_NO_TF = new JTextField(10));
+		JPanel pUSER_Name = new JPanel();
+		pUSER_Name.add(new JLabel("영화제목"));
+		pUSER_Name.add(USER_NO_TF = new JTextField(10));
 
-		JPanel pUSER_ID = new JPanel();
-		pUSER_ID.add(new JLabel("아이디"));
-		pUSER_ID.add(USER_ID_TF = new JTextField(10));
+		JPanel pUSER_genre = new JPanel();
+		pUSER_genre.add(new JLabel("장르"));
+		pUSER_genre.add(USER_ID_TF = new JTextField(10));
 
-		JPanel pUSER_PW = new JPanel();
-		pUSER_PW.add(new JLabel("비밀번호"));
-		pUSER_PW.add(USER_PW_TF = new JTextField(10));
+		JPanel pUSER_cty = new JPanel();
+		pUSER_cty.add(new JLabel("국가"));
+		pUSER_cty.add(USER_PW_TF = new JTextField(10));
 
 		JPanel pUSER_NAME = new JPanel();
-		pUSER_NAME.add(new JLabel("이름"));
+		pUSER_NAME.add(new JLabel("ㅂ"));
 		pUSER_NAME.add(USER_NAME_TF = new JTextField(10));
 
 		JPanel pUSER_EMAIL = new JPanel();
-		pUSER_EMAIL.add(new JLabel("이메일"));
+		pUSER_EMAIL.add(new JLabel("ㅂ"));
 		pUSER_EMAIL.add(USER_EMAIL_TF = new JTextField(10));
 
-		left.add(pUSER_NO);
-		left.add(pUSER_ID);
-		left.add(pUSER_PW);
+		left.add(pUSER_Name);
+		left.add(pUSER_genre);
+		left.add(pUSER_cty);
 		left.add(pUSER_NAME);
 		left.add(pUSER_EMAIL);
 
@@ -107,7 +108,7 @@ public class MoviePage extends JFrame implements ActionListener {
 		bottom.add(cancelB = new JButton("초기화"));
 		cancelB.addActionListener(this);
 
-		Object[] title = { "넘버", "아이디", "비밀번호", "이름", "이메일" };
+		Object[] title = { "No", "영화제목", "장르", "상영시간", "국가", "감독" };
 
 		table = new JTable(new DefaultTableModel(title, 0));
 		table.setEnabled(false);
@@ -227,6 +228,7 @@ public class MoviePage extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) throws Exception {
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
