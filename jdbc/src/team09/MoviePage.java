@@ -128,7 +128,7 @@ public class MoviePage extends JFrame implements ActionListener {
 		cmd = NONE;
 		initialize();
 
-//		displayAllMovie();
+		displayAllMovie();
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
