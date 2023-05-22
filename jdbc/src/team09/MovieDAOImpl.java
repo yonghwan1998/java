@@ -142,7 +142,6 @@ public class MovieDAOImpl extends JdbcDAO implements MovieDAO {
 		// TODO Auto-generated method stub
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		// List<MovieDTO> movieList = new ArrayList<>();
 		int movieList = 0;
 
 		try {
@@ -150,7 +149,6 @@ public class MovieDAOImpl extends JdbcDAO implements MovieDAO {
 
 			String sql = "update MOVIE_INFO set MOVIE_TITLE=?, MOVIE_GENRE=?, MOVIE_TIME=?, MOVIE_COUNTRY=?, MOVIE_DIRECTOR=? where MOVIE_NO=?";
 			pstmt = con.prepareStatement(sql);
-			// pstmt.setInt(1, movieList.getUSER_NO());
 			pstmt.setString(1, movie.getMOVIE_TITLE());
 			pstmt.setString(2, movie.getMOVIE_GENRE());
 			pstmt.setString(3, movie.getMOVIE_TIME());
