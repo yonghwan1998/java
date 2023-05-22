@@ -37,27 +37,27 @@ public class LoginPage extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		JLabel img = new JLabel();
-		ImageIcon icon = new ImageIcon("src/image/film1.png");
+		ImageIcon icon = new ImageIcon("src/team09/image/film1.png");
 		img.setIcon(icon);
 		add(img);
 
 		JLabel minions = new JLabel();
-		ImageIcon minionsIcon = new ImageIcon("src/image/minions.png");
+		ImageIcon minionsIcon = new ImageIcon("src/team09/image/minions.png");
 		minions.setIcon(minionsIcon);
 		add(minions);
 
 		JLabel nimo = new JLabel();
-		ImageIcon nimoIcon = new ImageIcon("src/image/nimo.png");
+		ImageIcon nimoIcon = new ImageIcon("src/team09/image/nimo.png");
 		nimo.setIcon(nimoIcon);
 		add(nimo);
 
 		JLabel totoro = new JLabel();
-		ImageIcon totoroIcon = new ImageIcon("src/image/totoro.png");
+		ImageIcon totoroIcon = new ImageIcon("src/team09/image/totoro.png");
 		totoro.setIcon(totoroIcon);
 		add(totoro);
 
 		JLabel sad = new JLabel();
-		ImageIcon sadIcon = new ImageIcon("src/image/sad.png");
+		ImageIcon sadIcon = new ImageIcon("src/team09/image/sad.png");
 		sad.setIcon(sadIcon);
 		add(sad);
 
@@ -87,10 +87,10 @@ public class LoginPage extends JFrame {
 
 			@Override
 			public void run() {
-				for (int x = 0; x <= 600; x += 20) {
+				for (int x = 0; x <= 580; x += 20) {
 					minions.setBounds(x, 280, 200, 200);
 
-					if (x == 600) {
+					if (x == 580) {
 						x = 0;
 					}
 					try {
@@ -106,10 +106,10 @@ public class LoginPage extends JFrame {
 
 			@Override
 			public void run() {
-				for (int x = 100; x <= 600; x += 20) {
+				for (int x = 160; x <= 580; x += 20) {
 
 					nimo.setBounds(x, 280, 200, 200);
-					if (x == 600) {
+					if (x == 580) {
 						x = 0;
 					}
 					try {
@@ -125,10 +125,10 @@ public class LoginPage extends JFrame {
 
 			@Override
 			public void run() {
-				for (int x = 200; x <= 600; x += 20) {
+				for (int x = 320; x <= 580; x += 20) {
 					totoro.setBounds(x, 280, 200, 200);
 
-					if (x == 600) {
+					if (x == 580) {
 						x = 0;
 					}
 					try {
@@ -144,9 +144,9 @@ public class LoginPage extends JFrame {
 
 			@Override
 			public void run() {
-				for (int x = 300; x <= 600; x += 20) {
+				for (int x = 480; x <= 580; x += 20) {
 					sad.setBounds(x, 280, 200, 200);
-					if (x == 600) {
+					if (x == 580) {
 						x = 0;
 					}
 					try {

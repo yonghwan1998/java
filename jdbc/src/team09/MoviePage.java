@@ -1,8 +1,11 @@
 package team09;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -50,28 +53,49 @@ public class MoviePage extends JFrame implements ActionListener {
 		left.setLayout(new GridLayout(6, 1));
 
 		JPanel pMOVIE_No = new JPanel();
-		pMOVIE_No.add(new JLabel("영화 번호"));
+		pMOVIE_No.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		JLabel label = new JLabel("영화 번호");
+		pMOVIE_No.add(label);
 		pMOVIE_No.add(MOVIE_NO_TF = new JTextField(10));
 
 		JPanel pMOVIE_Name = new JPanel();
-		pMOVIE_Name.add(new JLabel("영화제목"));
+		pMOVIE_Name.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		JLabel label_1 = new JLabel("영화제목");
+		pMOVIE_Name.add(label_1);
 		pMOVIE_Name.add(MOVIE_TITLE_TF = new JTextField(10));
 
 		JPanel pMOVIE_Genre = new JPanel();
-		pMOVIE_Genre.add(new JLabel("장르"));
+		pMOVIE_Genre.setLayout(null);
+		JLabel label_2 = new JLabel("장르");
+		label_2.setBounds(20, 13, 30, 15);
+		pMOVIE_Genre.add(label_2);
 		pMOVIE_Genre.add(MOVIE_GENRE_TF = new JTextField(10));
+		MOVIE_GENRE_TF.setBounds(60, 8, 116, 21);
 
 		JPanel pMOVIE_Time = new JPanel();
-		pMOVIE_Time.add(new JLabel("상영시간"));
+		pMOVIE_Time.setLayout(null);
+		JLabel label_3 = new JLabel("상영시간");
+		label_3.setBounds(5, 15, 52, 15);
+		pMOVIE_Time.add(label_3);
 		pMOVIE_Time.add(MOVIE_TIME_TF = new JTextField(10));
+		MOVIE_TIME_TF.setBounds(60, 10, 116, 21);
 
 		JPanel pMOVIE_Country = new JPanel();
-		pMOVIE_Country.add(new JLabel("국가"));
+		pMOVIE_Country.setLayout(null);
+		JLabel label_4 = new JLabel("국가");
+		label_4.setBounds(20, 15, 30, 15);
+		pMOVIE_Country.add(label_4);
 		pMOVIE_Country.add(MOVIE_COUNTRY_TF = new JTextField(10));
+		MOVIE_COUNTRY_TF.setBounds(60, 10, 116, 21);
 
 		JPanel pMOVIE_DIRECTOR = new JPanel();
-		pMOVIE_DIRECTOR.add(new JLabel("감독"));
+		pMOVIE_DIRECTOR.setLayout(null);
+		JLabel label_5 = new JLabel("감독");
+
+		label_5.setBounds(20, 15, 30, 15);
+		pMOVIE_DIRECTOR.add(label_5);
 		pMOVIE_DIRECTOR.add(MOVIE_DIRECTOR_TF = new JTextField(10));
+		MOVIE_DIRECTOR_TF.setBounds(60, 10, 116, 21);
 
 		left.add(pMOVIE_No);
 		left.add(pMOVIE_Name);
@@ -84,18 +108,33 @@ public class MoviePage extends JFrame implements ActionListener {
 		bottom.setLayout(new GridLayout(1, 5));
 
 		bottom.add(addB = new JButton("등  록"));
+		addB.setBackground(Color.BLACK);
+		addB.setForeground(Color.WHITE);
+		addB.setFont(new Font("Dialog", 1, 15));
 		addB.addActionListener(this);
 
 		bottom.add(updateB = new JButton("수  정"));
+		updateB.setBackground(Color.BLACK);
+		updateB.setForeground(Color.WHITE);
+		updateB.setFont(new Font("Dialog", 1, 15));
 		updateB.addActionListener(this);
 
 		bottom.add(deleteB = new JButton("삭  제"));
+		deleteB.setBackground(Color.BLACK);
+		deleteB.setForeground(Color.WHITE);
+		deleteB.setFont(new Font("Dialog", 1, 15));
 		deleteB.addActionListener(this);
 
 		bottom.add(searchB = new JButton("검  색"));
+		searchB.setBackground(Color.BLACK);
+		searchB.setForeground(Color.WHITE);
+		searchB.setFont(new Font("Dialog", 1, 15));
 		searchB.addActionListener(this);
 
 		bottom.add(cancelB = new JButton("초기화"));
+		cancelB.setBackground(Color.BLACK);
+		cancelB.setForeground(Color.WHITE);
+		cancelB.setFont(new Font("Dialog", 1, 15));
 		cancelB.addActionListener(this);
 
 		Object[] title = { "No", "영화제목", "장르", "상영시간", "국가", "감독" };
@@ -103,7 +142,14 @@ public class MoviePage extends JFrame implements ActionListener {
 		table = new JTable(new DefaultTableModel(title, 0));
 		table.setEnabled(false);
 		table.getTableHeader().setReorderingAllowed(false);
-		table.getTableHeader().setResizingAllowed(false);
+		table.getTableHeader().setResizingAllowed(true);
+
+		table.getColumn("No").setPreferredWidth(5);
+		table.getColumn("영화제목").setPreferredWidth(150);
+		table.getColumn("장르").setPreferredWidth(25);
+		table.getColumn("상영시간").setPreferredWidth(10);
+		table.getColumn("국가").setPreferredWidth(20);
+		table.getColumn("감독").setPreferredWidth(20);
 
 		JScrollPane sp = new JScrollPane(table);
 
@@ -296,7 +342,7 @@ public class MoviePage extends JFrame implements ActionListener {
 			rowData.add(movie.getMOVIE_NO());
 			rowData.add(movie.getMOVIE_TITLE());
 			rowData.add(movie.getMOVIE_GENRE());
-			rowData.add(movie.getMOVIE_TIME());
+			rowData.add(movie.getMOVIE_TIME() + "분");
 			rowData.add(movie.getMOVIE_COUNTRY());
 			rowData.add(movie.getMOVIE_DIRECTOR());
 
