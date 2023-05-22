@@ -87,18 +87,66 @@ public class LoginPage extends JFrame {
 
 			@Override
 			public void run() {
+				for (int x = 0; x <= 600; x += 20) {
+					minions.setBounds(x, 280, 200, 200);
 
-				for (int x = 0; x <= 700; x += 20) {
-					minions.setBounds(100, 280, 200, 200);
-					minions.setLocation(x, 280);
-					nimo.setBounds(100, 280, 200, 200);
-					nimo.setLocation(x + 100, 280);
-					totoro.setBounds(100, 280, 200, 200);
-					totoro.setLocation(x + 200, 280);
-					sad.setBounds(100, 280, 200, 200);
-					sad.setLocation(x + 300, 280);
+					if (x == 600) {
+						x = 0;
+					}
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
 
-					if (x == 700) {
+			}
+		}).start();
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (int x = 100; x <= 600; x += 20) {
+
+					nimo.setBounds(x, 280, 200, 200);
+					if (x == 600) {
+						x = 0;
+					}
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+
+			}
+		}).start();
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (int x = 200; x <= 600; x += 20) {
+					totoro.setBounds(x, 280, 200, 200);
+
+					if (x == 600) {
+						x = 0;
+					}
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+
+			}
+		}).start();
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (int x = 300; x <= 600; x += 20) {
+					sad.setBounds(x, 280, 200, 200);
+					if (x == 600) {
 						x = 0;
 					}
 					try {
