@@ -1,11 +1,11 @@
 package team09;
 
-import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,15 +13,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
+
 
 public class LoginPage extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-
-	private JPanel contentPane;
-	private JTextField textFieldID;
-	private JPasswordField textFieldPW;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -29,6 +25,7 @@ public class LoginPage extends JFrame {
 				try {
 					LoginPage frame = new LoginPage();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,66 +35,148 @@ public class LoginPage extends JFrame {
 
 	// 프레임
 	public LoginPage() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 580, 500);
-		contentPane = new JPanel();
-		contentPane.setForeground(new Color(0, 0, 0));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-
-		JLabel labelLogin = new JLabel("      로그인");
-		labelLogin.setForeground(new Color(0, 128, 255));
-		labelLogin.setFont(new Font("굴림", Font.BOLD, 60));
-		labelLogin.setBounds(63, 39, 435, 190);
-		contentPane.add(labelLogin);
-
-		textFieldID = new JTextField();
-		textFieldID.setBounds(157, 261, 232, 21);
-		contentPane.add(textFieldID);
-		textFieldID.setColumns(10);
-
-		textFieldPW = new JPasswordField();
-		textFieldPW.setBounds(157, 292, 232, 21);
-		contentPane.add(textFieldPW);
-
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		JLabel img = new JLabel();
+		ImageIcon icon = new ImageIcon("src/image/film1.png");
+		img.setIcon(icon);
+		add(img);
+		
+//		JLabel man = new JLabel();
+//		ImageIcon manIcon = new ImageIcon("src/image/man.png");
+//		man.setIcon(manIcon);
+//		add(man);
+		
+		JLabel minions = new JLabel();
+		ImageIcon minionsIcon = new ImageIcon("src/image/minions.png");
+		minions.setIcon(minionsIcon);
+		add(minions);
+		
+		JLabel nimo = new JLabel();
+		ImageIcon nimoIcon = new ImageIcon("src/image/nimo.png");
+		nimo.setIcon(nimoIcon);
+		add(nimo);
+		
+		JLabel totoro = new JLabel();
+		ImageIcon totoroIcon = new ImageIcon("src/image/totoro.png");
+		totoro.setIcon(totoroIcon);
+		add(totoro);
+		
+		JLabel sad = new JLabel();
+		ImageIcon sadIcon = new ImageIcon("src/image/sad.png");
+		sad.setIcon(sadIcon);
+		add(sad);
+		
+		
+		JLabel jl_login = new JLabel("Login ..");
+		jl_login.setFont(new Font("Serif", Font.BOLD, 50));
+		add(jl_login);
+		
+		
+		JLabel jl_id = new JLabel("I D : "); 
+		jl_id.setFont(new Font("Serif", Font.BOLD, 20));
+		add(jl_id);
+		JLabel jl_pw = new JLabel("PassWord : ");
+		jl_pw.setFont(new Font("Serif", Font.BOLD, 15));
+		add(jl_pw);
+		
+		JTextField jtf_id = new JTextField(12);
+		add(jtf_id);
+		JPasswordField jtf_pw = new JPasswordField(12);
+		add(jtf_pw);
 		JButton btnLogin = new JButton("로그인");
-
-		// 로그인 버튼 이벤트 처리
+		add(btnLogin);
+		JButton btnJoin = new JButton("회원가입");
+		add(btnJoin);
+		
+		img.setBounds(30, 0, 600, 550);
+		
+		//test
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				for(int x=0; x<=500; x+=20) {
+					int x1, x2, x3, x4;
+					x1 = x;
+					minions.setBounds(100, 280, 200, 200);
+					minions.setLocation(x1, 280);
+					if(x1 == 500) {
+						x = 0;
+					}
+					
+					x2 = x;
+					nimo.setBounds(100, 280, 200, 200);
+					nimo.setLocation(x2+100, 280);
+					
+					x3 = x;
+					totoro.setBounds(100, 280, 200, 200);
+					totoro.setLocation(x3+200, 280);
+					
+					x4 = x;
+					sad.setBounds(100, 280, 200, 200);
+					sad.setLocation(x4+300, 280);
+					
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				
+				
+			}
+		}).start();
+		
+		
+		//
+		jl_login.setBounds(270, 220, 200, 150);
+		
+		jl_id.setBounds(168, 435, 80, 40);
+		jl_pw.setBounds(130, 475, 80, 40);
+		
+		jtf_id.setBounds(230, 435, 200, 30);
+		jtf_pw.setBounds(230, 475, 200, 30);
+		
+		btnLogin.setBounds(460, 435, 80, 30);
+		btnJoin.setBounds(460, 475, 90, 30);
+		
+		add(panel);
+		setSize(700, 600);
+		setLocation(300, 300);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("로그인 화면");
+		setVisible(true);
+		
+		
+		 //로그인 버튼 이벤트 처리
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String id = textFieldID.getText();
-				String pw = textFieldPW.getText();
-
+				String id = jtf_id.getText();
+				String pw = jtf_pw.getText();
+				
 				sendIdPw(id, pw);
 			}
 		});
-
-		btnLogin.setBounds(409, 261, 71, 53);
-		contentPane.add(btnLogin);
-
+		
 		// 회원가입 버튼 이벤트 처리
-		JButton btnJoin = new JButton("회원가입");
-		btnJoin.setBounds(304, 323, 85, 21);
-		contentPane.add(btnJoin);
-
 		btnJoin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JoinPage joinPage = new JoinPage();
-				joinPage.setLocation(700, 300);
+				joinPage.setLocation(500, 300);
 				joinPage.setVisible(true);
 			}
 		});
-
 	}
+	
+	
 
 	public void sendIdPw(String id, String pw) {
 		UserDTO user = UserDAOImpl.getDao().selectUser(id);
 
 		if (user == null) {
-			// System.out.println("No User");
 			JOptionPane.showMessageDialog(this, "존재하지 않는 아이디입니다.");
 			return;
 		}
