@@ -30,14 +30,14 @@ public class GenericApp {
 		System.out.println("==============================================================");
 		
 		/*
-		 * 제네릭 타입이 상속받지 못한 클래스를 사용할 경우 에러 발생 Generic<String> generic3=new
-		 * Generic<String>();//필드의 자료형 : String
+		 * 제네릭 타입이 상속받지 못한 클래스를 사용할 경우 에러 발생
+		 * Generic<String> generic3=new Generic<String>();//필드의 자료형 : String
 		 * 
 		 * generic3.setField("홍길동");
 		 * 
 		 * String returnObject3=generic3.getField();
-		 * System.out.println("필드값 = "+returnObject3); System.out.println(
-		 * "==============================================================");
+		 * System.out.println("필드값 = "+returnObject3);
+		 * System.out.println("==============================================================");
 		 */
 	}
 }
