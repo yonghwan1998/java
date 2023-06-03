@@ -5,9 +5,9 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.regex.Pattern;
 
-//학생정보를 관리하는 프로그램 작성
+// 학생정보를 관리하는 프로그램 작성
 // => 메뉴 선택에 따른 학생정보 삽입,변경,삭제,검색 기능 제공
-// => 입력과 출력은 프로그램에서 구현하고 데이타 처리는 DAO 클래스의 메소드를 호출하여 처리
+// => 입력과 출력은 프로그램에서 구현하고 데이터 처리는 DAO 클래스의 메소드를 호출하여 처리
 public class StudentCUIApp {
 	// 키보드 입력스트림을 저장하기 위한 필드
 	private BufferedReader in;
@@ -28,7 +28,7 @@ public class StudentCUIApp {
 
 			int choice;
 			try {
-				System.out.print("메뉴 선택[1~6] >> ");
+				System.out.print("메뉴 선택 [1 ~ 6] >> ");
 				// 키보드로 문자열을 입력받아 정수값으로 변환하여 변수에 저장
 				choice = Integer.parseInt(in.readLine());
 				// 메뉴 선택을 잘못한 경우 인위적 예외 발생
@@ -106,7 +106,7 @@ public class StudentCUIApp {
 				// 반환하는 DAO 클래스의 메소드 호출
 				// => null 반환 : 학생정보 미검색 , StudentDTO 객체 반환 : 학생정보 검색
 				// 싱글톤 클래스는 객체를 반환받아 직접 메소드 호출 - 참조변수 불필요
-				MovieDTO student = StudentDAOImpl.getDAO().selectStudent(no);
+				StudentDTO student = StudentDAOImpl.getDAO().selectStudent(no);
 
 				if (student != null) {// 키보드로 입력된 학번의 학생정보가 검색된 경우 - 학번 중복
 					System.out.println("[입력오류]이미 사용중인 학번을 입력 하였습니다.");
@@ -193,7 +193,7 @@ public class StudentCUIApp {
 			// => DAO 클래스의 메소드 호출
 
 			// 학생정보를 저장하기 위한 StudentDTO 객체 생성
-			MovieDTO student = new MovieDTO();
+			StudentDTO student = new StudentDTO();
 			// 키보드로 입력받은 값으로 StudentDTO 객체의 필드값 변경
 			student.setNo(no);
 			student.setName(name);
@@ -242,7 +242,7 @@ public class StudentCUIApp {
 
 			// 학번을 전달받아 STUDENT 테이블에 저장된 해당 학번의 학생정보를 검색하여
 			// 반환하는 DAO 클래스의 메소드 호출
-			MovieDTO student = StudentDAOImpl.getDAO().selectStudent(no);
+			StudentDTO student = StudentDAOImpl.getDAO().selectStudent(no);
 
 			if (student == null) {// 검색된 학생정보가 없는 경우
 				System.out.println("[처리결과]변경할 학번의 학생정보가 없습니다.");
@@ -395,7 +395,7 @@ public class StudentCUIApp {
 
 			// 이름을 전달받아 STUDENT 테이블에 저장된 해당 이름의 학생정보를 검색하여 반환
 			// 하는 DAO 클래스의 메소드 호출
-			List<MovieDTO> studentList = StudentDAOImpl.getDAO().selectNameStudentList(name);
+			List<StudentDTO> studentList = StudentDAOImpl.getDAO().selectNameStudentList(name);
 
 			if (studentList.isEmpty()) {
 				System.out.println("[처리결과]검색된 학생정보가 없습니다.");
@@ -405,7 +405,7 @@ public class StudentCUIApp {
 			System.out.println("==============================================================");
 			System.out.println("학번\t이름\t전화번호\t주소\t\t생년월일");
 			System.out.println("==============================================================");
-			for (MovieDTO student : studentList) {
+			for (StudentDTO student : studentList) {
 				System.out.println(student);
 			}
 			System.out.println("==============================================================");
@@ -420,7 +420,7 @@ public class StudentCUIApp {
 		System.out.println("### 학생목록 출력 ###");
 
 		// STUDENT 테이블에 저장된 모든 학생정보를 검색하여 반환하는 DAO 클래스의 메소드 호출
-		List<MovieDTO> studentList = StudentDAOImpl.getDAO().selectAllStudentList();
+		List<StudentDTO> studentList = StudentDAOImpl.getDAO().selectAllStudentList();
 
 		if (studentList.isEmpty()) {// 검색된 학생정보가 없는 경우
 			System.out.println("[처리결과]저장된 학생정보가 없습니다.");
@@ -431,7 +431,7 @@ public class StudentCUIApp {
 		System.out.println("학번\t이름\t전화번호\t주소\t\t생년월일");
 		System.out.println("==============================================================");
 		// List 객체의 요소를 제공받아 반복 처리
-		for (MovieDTO student : studentList) {
+		for (StudentDTO student : studentList) {
 			// StudentDTO 클래스의 toString() 메소드 자동 호출 - StudentDTO 객체의 필드값 반환
 			System.out.println(student);
 		}

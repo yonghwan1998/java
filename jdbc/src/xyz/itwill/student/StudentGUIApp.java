@@ -23,12 +23,6 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-//JAVA 프로그램(클래스)를 배포하는 방법
-//1.프로젝트 >> 오른쪽 버튼 클릭 >> Export >> Java 선택 >> Runnable JAR File 선택
-//2.Launch configuration >> 프로그램 선택
-//3.Export destination >> Jar 파일의 경로 입력
-//4.Finish 클릭
-
 public class StudentGUIApp extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
@@ -280,7 +274,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 	// STUDENT 테이블에 저장된 모든 학생정보를 검색하여 JTable 컴퍼넌트에 출력하는 메소드
 	public void displayAllStudent() {
 		// STUDENT 테이블에 저장된 모든 학생정보를 검색하여 반환하는 DAO 클래스의 메소드
-		List<MovieDTO> studentList = StudentDAOImpl.getDAO().selectAllStudentList();
+		List<StudentDTO> studentList = StudentDAOImpl.getDAO().selectAllStudentList();
 
 		if (studentList.isEmpty()) {
 			JOptionPane.showMessageDialog(this, "저장된 학생정보가 없습니다.");
@@ -298,7 +292,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 		}
 
 		// List 객체의 요소(StudentDTO 객체)를 하나씩 제공받아 처리하는 반복문
-		for (MovieDTO student : studentList) {
+		for (StudentDTO student : studentList) {
 			// Vector 객체 생성 - JTable 컴퍼넌트에 추가될 하나의 행을 저장하기 위한 객체
 			Vector<Object> rowData = new Vector<>();
 			// StudentDTO 객체의 필드값을 Vector 객체의 요소로 추가
@@ -392,7 +386,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 			return;
 		}
 
-		MovieDTO student = new MovieDTO();
+		StudentDTO student = new StudentDTO();
 		student.setNo(no);
 		student.setName(name);
 		student.setPhone(phone);
@@ -428,7 +422,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 
 		// 학번을 전달받아 STUDENT 테이블에 저장된 해당 학번의 학생정보를 검색하여
 		// 반환하는 DAO 클래스의 메소드 호출
-		MovieDTO student = StudentDAOImpl.getDAO().selectStudent(no);
+		StudentDTO student = StudentDAOImpl.getDAO().selectStudent(no);
 
 		if (student == null) {// 검색된 학생정보가 없는 경우
 			JOptionPane.showMessageDialog(this, "변경할 학번의 학생정보가 없습니다.");
@@ -507,7 +501,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 			return;
 		}
 
-		MovieDTO student = new MovieDTO();
+		StudentDTO student = new StudentDTO();
 		student.setNo(no);
 		student.setName(name);
 		student.setPhone(phone);
@@ -576,7 +570,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 
 		// 이름을 전달받아 STUDENT 테이블에 저장된 해당 이름의 학생정보를 검색하여 반환
 		// 하는 DAO 클래스의 메소드 호출
-		List<MovieDTO> studentList = StudentDAOImpl.getDAO().selectNameStudentList(name);
+		List<StudentDTO> studentList = StudentDAOImpl.getDAO().selectNameStudentList(name);
 
 		if (studentList.isEmpty()) {
 			JOptionPane.showMessageDialog(this, "검색된 학생정보가 없습니다.");
@@ -589,7 +583,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 			model.removeRow(0);
 		}
 
-		for (MovieDTO student : studentList) {
+		for (StudentDTO student : studentList) {
 			Vector<Object> rowData = new Vector<>();
 
 			rowData.add(student.getNo());
