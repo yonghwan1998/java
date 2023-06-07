@@ -9,7 +9,6 @@ package basic;
 
 // 형식) do { 명령; 명령; ... } while(조건식)
 // => 블럭 내부에 작성된 명령을 1번 이상 실행
-
 public class WhileApp {
 	public static void main(String[] args) {
 

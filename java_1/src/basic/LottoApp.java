@@ -3,7 +3,6 @@ package basic;
 // 1~45 범위의 정수형 난수값을 6개 제공받아 출력하는 프로그램 작성
 // => 6개의 난수값은 서로 중복되지 않도록 작성하며 오름차순 정렬하여 출력
 // 정렬(Sort) : 값을 차례대로 나열하는 기능 - 오름차순 정렬(Ascending Sort), 내림차순 정렬(Descending Sort)
-
 public class LottoApp {
 	public static void main(String[] args) {
 		// 6개의 정수 난수값을 저장하기 위한 배열 생성

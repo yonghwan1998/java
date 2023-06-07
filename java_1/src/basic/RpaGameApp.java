@@ -6,7 +6,6 @@ import java.util.Scanner;
 // => 컴퓨터(난수값)과 사용자(키보드 입력값)의 가위바위보 대결
 // => 사용자가 이길 경우 대결을 반복 실행하며 질 경우 대결 종료
 // => 대결 종료 후 사용자의 승리 횟수 출력
-
 public class RpaGameApp {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);

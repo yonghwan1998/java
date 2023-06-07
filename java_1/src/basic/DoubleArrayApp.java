@@ -1,7 +1,6 @@
 package basic;
 
 // 2차원 배열 : 1차원 배열의 모임
-
 public class DoubleArrayApp {
 	public static void main(String[] args) {
 		// 형식) 자료형[][] 참조변수 = new 자료형[행갯수][열갯수];

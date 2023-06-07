@@ -6,7 +6,6 @@ import java.util.Scanner;
 // System.in : 키보드로부터 입력된 값을 입력스트림을 사용하여 프로그램에 전달하는 기능을 제공하는 객체
 
 // 사용자로부터 키보드로 이름과 나이를 입력받아 화면에 출력하는 프로그램 작성
-
 public class ScannerApp {
 
 	public static void main(String[] args) {

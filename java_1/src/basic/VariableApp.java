@@ -18,7 +18,6 @@ package basic;
 // => 파스칼 표기법(PascalCase) : 조합된 단어의 첫문자를 대문자로 표현하여 작성 - 클래스명, 인터페이스명 등
 // => 카멜 표기법(CamelCase) : 첫번째 단어를 제외한 나머지 단어의 첫문자를 대문자로 표현하여 작성 - 변수명, 메소드명 등
 // => 스네이크 표기법(SnakeCase) : 조합된 단어를 _로 구분하여 작성 - 상수(Constant : 상수명은 무조건 대문자로 작성)
-
 public class VariableApp {
 	public static void main(String[] args) {
 		int su;

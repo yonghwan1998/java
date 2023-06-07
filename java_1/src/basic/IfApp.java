@@ -21,7 +21,6 @@ package basic;
 // => 중지점(BreakPoint) 설정 - [F11] : Debug 기능 실행 단축키 - Debug Perspective 변환
 // - [F6] : 현재 스레드 위치의 명령을 하나씩 실행 >> 반복 - Debug 처리 완료 
 // - 프로그램 강제 종료(Terminate : Ctrl + F2) - Java Perspective 변환 - 중지점 제거
-
 public class IfApp {
 
 	public static void main(String[] args) {

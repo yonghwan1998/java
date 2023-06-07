@@ -36,6 +36,9 @@ public class InputCheckApp {
 		case 6:
 			grade = "D";
 			break;
+		case 5:
+			grade = "E";
+			break;
 		default:
 			grade = "F";
 			break;

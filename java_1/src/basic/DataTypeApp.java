@@ -11,7 +11,6 @@ package basic;
 
 // Bit : 0 또는 1를 저장할 수 있는 저장의 최소 단위
 // Byte : 영문자 하나를 저장할 수 있는 표현의 최소 단위 - 8Bit
-
 public class DataTypeApp {
 	public static void main(String[] args) {
 

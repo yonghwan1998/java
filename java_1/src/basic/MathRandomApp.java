@@ -2,7 +2,6 @@ package basic;
 
 // 컴퓨터로부터 난수값을 제공받아 출력하는 프로그램 작성
 // => 난수값 : 컴퓨터로부터 불규칙적으로 제공되는 숫자값
-
 public class MathRandomApp {
 	public static void main(String[] args) {
 		

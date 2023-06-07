@@ -3,7 +3,6 @@ package basic;
 // 연산자(Operator) : 계산을 목적으로 제공되는 기호 또는 키워드
 // => 피연산자 : 연산자에 의해 계산되는 값을 의미
 // => 단항연산자(피연산자 : 1개), 이항연산자(피연산자 : 2개), 삼항연산자(피연산자 : 3개)
-
 public class OperatorApp {
 	public static void main(String[] args) {
 		// 최우선 연산자 : 무조건 가장 먼저 연산 처리되는 연산자

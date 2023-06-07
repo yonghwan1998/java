@@ -11,7 +11,6 @@ package basic;
 // 주의)조건식의 결과가 계속 참인 경우 무한반복 - 무한루프(Endless Loop) >> 프로그램 강제종료(Terminate)
 // 초기식과 증감식은 , 기호를 사용하여 나열 작성 가능
 // 초기식, 조건식, 증감식은 생략 가능 - 조건식이 생략된 경우 무조건 참으로 처리
-
 public class ForApp {
 	public static void main(String[] args) {
 		// "Java Programming"를 화면에 5번 출력

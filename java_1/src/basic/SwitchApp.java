@@ -15,7 +15,6 @@ package basic;
 // => case 키워드로 제공되는 값이 중복되어 작성될 경우 에러 발생
 // => break 키워드를 만나면 switch 구문 강제 종료
 // => case 키워드로 제공되는 값이 모든 다른 경우 default 키워드의 명령 실행 - 생략 가능
-
 public class SwitchApp {
 	public static void main(String[] args) {
 		int choice = 1;

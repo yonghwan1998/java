@@ -3,6 +3,7 @@ package basic;
 // 지역변수(Local Variable) : 특정 구문에서 선언된 변수 - 블럭({}) 내부에서 선언
 // => 지역변수는 선언된 구문에서만 사용 가능
 // => 지역변수가 선언된 구문이 종료되면 지역변수 자동 소멸
+
 public class LocalVariableApp {
 	public static void main(String[] args) {
 		int num1 = 100;
