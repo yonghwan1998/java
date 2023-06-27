@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%-- 회원정보를 입력받기 위한 JSP 문서 --%>
 <%-- => [회원가입] 태그를 클릭한 경우 [member/member_join_action.jsp] 문서 요청 - 입력값(회원정보) 전달 --%>
-<%-- => [아이디 중복 검사] 태그를 클릭한 경우 팝업창을 실행하여 [id_check.jsp] 문서 요청 - 아이디 전달 --%>
+<%-- => [아이디 중복 검사] 태그를 클릭한 경우 팝업창을 실행하여 [id_check.jsp] 문서 요청 - 아이디 전달 --%>    
 <style type="text/css">
 fieldset {
 	text-align: left;
@@ -50,51 +51,80 @@ legend {
 	color: white;
 }
 </style>
-<form id="join" action="<%=request.getContextPath()%>/member/member_join_action.jsp" method="post">
-	<%-- 아이디 중복 검삭 결과를 저장하기 위한 입력태그 --%>
-	<%-- => 0 : 아이디 중복 검사 미실행 또는 아이디 중복 - 아이디 사용 불가능 --%>
-	<%-- => 1 : 아이디 중복 검사 실행 및 아이디 미중복 - 아이디 사용 가능 --%>
-	<input type="hidden" id="idCheckResult" value="0">
-	<fieldset>
-		<legend>회원가입 정보</legend>
-		<ul>
-			<li><label for="id">아이디</label> <input type="text" name="id" id="id"><span id="idCheck">아이디 중복 검사</span>
-				<div id="idMsg" class="error">아이디를 입력해 주세요.</div>
-				<div id="idRegMsg" class="error">아이디는 영문자로 시작되는 영문자,숫자,_의 6~20범위의 문자로만 작성 가능합니다.</div>
-				<div id="idCheckMsg" class="error">아이디 중복 검사를 반드시 실행해 주세요.</div></li>
-			<li><label for="passwd">비밀번호</label> <input type="password" name="passwd" id="passwd">
-				<div id="passwdMsg" class="error">비밀번호를 입력해 주세요.</div>
-				<div id="passwdRegMsg" class="error">비밀번호는 영문자,숫자,특수문자가 반드시 하나이상 포함된 6~20 범위의 문자로만 작성 가능합니다.</div></li>
-			<li><label for="passwd">비밀번호 확인</label> <input type="password" name="repasswd" id="repasswd">
-				<div id="repasswdMsg" class="error">비밀번호 확인을 입력해 주세요.</div>
-				<div id="repasswdMatchMsg" class="error">비밀번호와 비밀번호 확인이 서로 맞지 않습니다.</div></li>
-			<li><label for="name">이름</label> <input type="text" name="name" id="name">
-				<div id="nameMsg" class="error">이름을 입력해 주세요.</div></li>
-			<li><label for="email">이메일</label> <input type="text" name="email" id="email">
-				<div id="emailMsg" class="error">이메일을 입력해 주세요.</div>
-				<div id="emailRegMsg" class="error">입력한 이메일이 형식에 맞지 않습니다.</div></li>
-			<li><label for="mobile">전화번호</label> <select name="mobile1">
-					<option value="010" selected>&nbsp;010&nbsp;</option>
-					<option value="011">&nbsp;011&nbsp;</option>
-					<option value="016">&nbsp;016&nbsp;</option>
-					<option value="017">&nbsp;017&nbsp;</option>
-					<option value="018">&nbsp;018&nbsp;</option>
-					<option value="019">&nbsp;019&nbsp;</option>
-			</select> - <input type="text" name="mobile2" id="mobile2" size="4" maxlength="4"> - <input type="text" name="mobile3" id="mobile3" size="4" maxlength="4">
-				<div id="mobileMsg" class="error">전화번호를 입력해 입력해 주세요.</div>
-				<div id="mobileRegMsg" class="error">전화번호는 3~4 자리의 숫자로만 입력해 주세요.</div></li>
-			<li><label>우편번호</label> <input type="text" name="zipcode" id="zipcode" size="7">
-				<div id="zipcodeMsg" class="error">우편번호를 입력해 주세요.</div></li>
-			<li><label for="address1">기본주소</label> <input type="text" name="address1" id="address1" size="50">
-				<div id="address1Msg" class="error">기본주소를 입력해 주세요.</div></li>
-			<li><label for="address2">상세주소</label> <input type="text" name="address2" id="address2" size="50">
-				<div id="address2Msg" class="error">상세주소를 입력해 주세요.</div></li>
-		</ul>
-	</fieldset>
-	<div id="fs">
-		<button type="submit">회원가입</button>
-		<button type="reset">다시입력</button>
-	</div>
+<form id="join" action="<%=request.getContextPath() %>/member/member_join_action.jsp" method="post">
+<%-- 아이디 중복 검삭 결과를 저장하기 위한 입력태그 --%>
+<%-- => 0 : 아이디 중복 검사 미실행 또는 아이디 중복 - 아이디 사용 불가능 --%>
+<%-- => 1 : 아이디 중복 검사 실행 및 아이디 미중복 - 아이디 사용 가능 --%>
+<input type="hidden" id="idCheckResult" value="0">
+<fieldset>
+	<legend>회원가입 정보</legend>
+	<ul>
+		<li>
+			<label for="id">아이디</label>
+			<input type="text" name="id" id="id"><span id="idCheck">아이디 중복 검사</span>
+			<div id="idMsg" class="error">아이디를 입력해 주세요.</div>
+			<div id="idRegMsg" class="error">아이디는 영문자로 시작되는 영문자,숫자,_의 6~20범위의 문자로만 작성 가능합니다.</div>
+			<div id="idCheckMsg" class="error">아이디 중복 검사를 반드시 실행해 주세요.</div>
+		</li>
+		<li>
+			<label for="passwd">비밀번호</label>
+			<input type="password" name="passwd" id="passwd">
+			<div id="passwdMsg" class="error">비밀번호를 입력해 주세요.</div>
+			<div id="passwdRegMsg" class="error">비밀번호는 영문자,숫자,특수문자가 반드시 하나이상 포함된 6~20 범위의 문자로만 작성 가능합니다.</div>
+		</li>
+		<li>
+			<label for="passwd">비밀번호 확인</label>
+			<input type="password" name="repasswd" id="repasswd">
+			<div id="repasswdMsg" class="error">비밀번호 확인을 입력해 주세요.</div>
+			<div id="repasswdMatchMsg" class="error">비밀번호와 비밀번호 확인이 서로 맞지 않습니다.</div>
+		</li>
+		<li>
+			<label for="name">이름</label>
+			<input type="text" name="name" id="name">
+			<div id="nameMsg" class="error">이름을 입력해 주세요.</div>
+		</li>
+		<li>
+			<label for="email">이메일</label>
+			<input type="text" name="email" id="email">
+			<div id="emailMsg" class="error">이메일을 입력해 주세요.</div>
+			<div id="emailRegMsg" class="error">입력한 이메일이 형식에 맞지 않습니다.</div>
+		</li>
+		<li>
+			<label for="mobile">전화번호</label>
+			<select name="mobile1">
+				<option value="010" selected>&nbsp;010&nbsp;</option>
+				<option value="011">&nbsp;011&nbsp;</option>
+				<option value="016">&nbsp;016&nbsp;</option>
+				<option value="017">&nbsp;017&nbsp;</option>
+				<option value="018">&nbsp;018&nbsp;</option>
+				<option value="019">&nbsp;019&nbsp;</option>
+			</select>
+			- <input type="text" name="mobile2" id="mobile2" size="4" maxlength="4">
+			- <input type="text" name="mobile3" id="mobile3" size="4" maxlength="4">
+			<div id="mobileMsg" class="error">전화번호를 입력해 입력해 주세요.</div>
+			<div id="mobileRegMsg" class="error">전화번호는 3~4 자리의 숫자로만 입력해 주세요.</div>
+		</li>
+		<li>
+			<label>우편번호</label>
+			<input type="text" name="zipcode" id="zipcode" size="7">
+			<div id="zipcodeMsg" class="error">우편번호를 입력해 주세요.</div>
+		</li>
+		<li>
+			<label for="address1">기본주소</label>
+			<input type="text" name="address1" id="address1" size="50">
+			<div id="address1Msg" class="error">기본주소를 입력해 주세요.</div>
+		</li>
+		<li>
+			<label for="address2">상세주소</label>
+			<input type="text" name="address2" id="address2" size="50">
+			<div id="address2Msg" class="error">상세주소를 입력해 주세요.</div>
+		</li>
+	</ul>
+</fieldset>
+<div id="fs">
+	<button type="submit">회원가입</button>
+	<button type="reset">다시입력</button>
+</div>
 </form>
 <script type="text/javascript">
 $("#id").focus();
@@ -189,15 +219,13 @@ $("#idCheck").click(function() {
 	}
 	
 	//팝업창을 실행하여 [id_check.jsp] 문서 요청
-	window.open("<%=request.getContextPath()%>
-	/member/id_check.jsp?id="
-								+ $("#id").val(), "idCheck",
-						"width=450, height=130, left=700, top=400");
-			});
+	window.open("<%=request.getContextPath()%>/member/id_check.jsp?id="+$("#id").val()
+			,"idCheck", "width=450, height=130, left=700, top=400");
+});
 
-	//입력태그(아이디)의 입력값이 변경된 경우 호출되는 이벤트 처리 함수 등록
-	$("#id").change(function() {
-		//아이디 중복 검사 결과값을 저장한 입력태그의 입력값 변경 - 아이디 중복 검사 미실행
-		$("#idCheckResult").val("0");
-	});
+//입력태그(아이디)의 입력값이 변경된 경우 호출되는 이벤트 처리 함수 등록
+$("#id").change(function() {
+	//아이디 중복 검사 결과값을 저장한 입력태그의 입력값 변경 - 아이디 중복 검사 미실행
+	$("#idCheckResult").val("0");
+});
 </script>
