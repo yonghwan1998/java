@@ -13,6 +13,11 @@ if (worker == null)
 	worker = "main_page";
 
 String contentPath = group + "/" + worker + ".jsp";
+
+String headerPath = "header_main.jsp";
+if (group.equals("admin")) {
+	headerPath = "header_admin.jsp";
+}
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +29,8 @@ String contentPath = group + "/" + worker + ".jsp";
 </head>
 <body>
 	<div id="header">
-		<jsp:include page="header_main.jsp" />
+		<%-- <jsp:include page="header_main.jsp"/> --%>
+		<jsp:include page="<%=headerPath%>" />
 	</div>
 
 	<div id="content">
