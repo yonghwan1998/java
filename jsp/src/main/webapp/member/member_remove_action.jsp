@@ -21,7 +21,8 @@ String passwd = Utility.encrypt(request.getParameter("passwd"));
 if (!loginMember.getPasswd().equals(passwd)) {
 	session.setAttribute("message", "입력하신 비밀번호가 맞지 않습니다.");
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='" + request.getContextPath() + "/index.jsp?group=member&worker=password_confirm&action=remove'");
+	out.println("location.href='" + request.getContextPath()
+	+ "/index.jsp?group=member&worker=password_confirm&action=remove'");
 	out.println("</script>");
 	return;
 }
@@ -33,5 +34,5 @@ MemberDAO.getDAO().updateMemberStatus(loginMember.getId(), 0);
 session.invalidate();
 
 //페이지 이동	
-response.sendRedirect(request.getContextPath() + "/index.jsp?group=main&worker=main_page");
+response.sendRedirect(request.getContextPath() + "/index.jsp?group=member&worker=member_remove");
 %>
