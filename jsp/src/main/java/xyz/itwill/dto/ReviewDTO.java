@@ -24,6 +24,7 @@ STATUS             NUMBER(1)      - 게시글 상태 : 0(삭제글), 1(일반글
 public class ReviewDTO {
 	private int num;
 	private String id;
+	private String name;// MEMBER 테이블의 회원이름을 저장하기 위한 필드
 	private String subject;
 	private String content;
 	private String regdate;
@@ -52,6 +53,14 @@ public class ReviewDTO {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getSubject() {
