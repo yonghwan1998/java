@@ -4,20 +4,20 @@
 <%-- => 템플릿 페이지의 몸체부에는 클라이언트 요청에 의해 전달된 값을 이용하여 JSP 문서의 실행
 결과를 제공받아 포함 --%>
 <%
-String group = request.getParameter("group");
-if (group == null)
-	group = "main";
+	request.setCharacterEncoding("utf-8");
 
-String worker = request.getParameter("worker");
-if (worker == null)
-	worker = "main_page";
-
-String contentPath = group + "/" + worker + ".jsp";
-
-String headerPath = "header_main.jsp";
-if (group.equals("admin")) {
-	headerPath = "header_admin.jsp";
-}
+	String group=request.getParameter("group");
+	if(group==null) group="main";
+	
+	String worker=request.getParameter("worker");
+	if(worker==null) worker="main_page";
+	
+	String contentPath=group+"/"+worker+".jsp";
+	
+	String headerPath="header_main.jsp";
+	if(group.equals("admin")) {
+		headerPath="header_admin.jsp";
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -25,16 +25,16 @@ if (group.equals("admin")) {
 <meta charset="UTF-8">
 <title>JSP</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath() %>/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="header">
 		<%-- <jsp:include page="header_main.jsp"/> --%>
-		<jsp:include page="<%=headerPath%>" />
+		<jsp:include page="<%=headerPath %>" />
 	</div>
 
 	<div id="content">
-		<jsp:include page="<%=contentPath%>" />
+		<jsp:include page="<%=contentPath %>" />
 	</div>
 
 	<div id="footer">
