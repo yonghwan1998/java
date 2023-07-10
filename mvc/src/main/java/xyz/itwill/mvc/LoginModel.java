@@ -61,7 +61,6 @@ public class LoginModel implements Action {
 			actionForward.setForward(false);
 			actionForward.setPath(request.getContextPath() + "/error.do");
 		}
-
 		return actionForward;
 	}
 
