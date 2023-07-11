@@ -71,6 +71,10 @@ public class ControllerServlet extends HttpServlet {
 			action = new WriteFormModel();
 		} else if (command.equals("/write.do")) {
 			action = new WriteModel();
+		} else if (command.equals("/list.do")) {
+			action = new ListModel();
+		} else if (command.equals("/view.do")) {
+			action = new ViewModel();
 		} else if (command.equals("/error.do")) {
 			action = new ErrorModel();
 		} else {// 클라이언트 요청에 대한 모델 역활의 클래스가 없는 경우
