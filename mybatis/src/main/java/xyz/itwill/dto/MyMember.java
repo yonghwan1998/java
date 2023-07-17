@@ -1,12 +1,10 @@
 package xyz.itwill.dto;
 
-//create table mymember(id varchar2(50) primary key, name varchar2(50),phone varchar2(20), email varchar2(100));
-
 public class MyMember {
 	private String id;
 	private String name;
 	private String phone;
-	private String address;
+	private String email;
 
 	public MyMember() {
 		// TODO Auto-generated constructor stub
@@ -36,11 +34,12 @@ public class MyMember {
 		this.phone = phone;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+
 }
