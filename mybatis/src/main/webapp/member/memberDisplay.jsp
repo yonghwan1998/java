@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	List<MyMember> memberList = MyMemberXMLDAO.getDAO().selectMemberList();
+List<MyMember> memberList = MyMemberXMLDAO.getDAO().selectMemberList();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,12 +20,16 @@
 			<th width="160">이름</th>
 		</tr>
 		<%-- 회원목록 출력 => 반복문 시작 --%>
-		<% for(MyMember member : memberList) { %>
+		<%
+		for (MyMember member : memberList) {
+		%>
 		<tr align="center">
-			<td width="140"><%=member.getId() %></td>
-			<td width="160"><a href="memberView.jsp?id=admin"><%=member.getName() %></a></td>
+			<td width="140"><%=member.getId()%></td>
+			<td width="160"><a href="memberView.jsp?id=<%=member.getId()%>"><%=member.getName()%></a></td>
 		</tr>
-		<% } %>
+		<%
+		}
+		%>
 		<%-- 반복문 종료 --%>
 
 		<tr align="right">
