@@ -2,7 +2,6 @@
 <%@page import="xyz.itwill.dto.Student"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%
 List<Student> studentList = StudentDAO.getDAO().selectStudentList();
 %>
@@ -10,9 +9,23 @@ List<Student> studentList = StudentDAO.getDAO().selectStudentList();
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MYBATIS</title>
+<style type="text/css">
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+td {
+	border: 1px solid black;
+	text-align: center;
+	padding: 10px;
+}
+</style>
 </head>
 <body>
+	<h1>학생목록</h1>
+	<hr>
 	<table>
 		<tr>
 			<td>학번</td>
