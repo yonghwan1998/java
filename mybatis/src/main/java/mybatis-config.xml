@@ -84,5 +84,7 @@
 		<!-- class 속성 : Interface 기반의 매퍼 파일의 경로를 속성값으로 설정 -->
 		<!-- => Interface 기반의 매퍼 파일의 경로는 Java 자료형(인터페이스)으로 표현하여 작성 -->
 		<mapper class="xyz.itwill.mapper.MyMemberInterfaceMapper" />
+
+		<mapper resource="xyz/itwill/mapper/MyMemberMapper.xml" />
 	</mappers>
 </configuration>
