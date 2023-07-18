@@ -7,6 +7,12 @@
 		sysdate)
 	</insert>
 
+	<insert id="insertComment2" parameterType="MyComment1">
+		<selectKey>
+			select mycomment_seq.nextval from dual
+		</selectKey>
+	</insert>
+
 	<!-- resultType 속성을 사용하여 검색행이 Java 객체로 제공되도록 자동 매핑 처리 -->
 	<!-- => 검색행의 컬럼명과 resultType 속성값으로 설정된 클래스의 필드명이 같도록 작성 -->
 	<select id="selectCommentList1" resultType="MyComment1">
