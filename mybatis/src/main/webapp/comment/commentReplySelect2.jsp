@@ -1,7 +1,7 @@
 <%@page import="xyz.itwill.dto.MyReply"%>
+<%@page import="xyz.itwill.dto.MyCommentReply"%>
 <%@page import="java.util.List"%>
 <%@page import="xyz.itwill.dao.MyCommentDAO"%>
-<%@page import="xyz.itwill.dto.MyComment1"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 if (request.getParameter("commentNo") == null) {//전달값(게시글번호)이 없는 경우
@@ -13,11 +13,9 @@ if (request.getParameter("commentNo") == null) {//전달값(게시글번호)이 
 //전달값(게시글번호)을 반환받아 저장
 int commentNo = Integer.parseInt(request.getParameter("commentNo"));
 
-//게시글번호를 전달받아 MYCOMMENT 테이블에 저장된 게시글을 검색하여 DTO 객체로 반환하는 DAO 클래스의 메소드 호출
-MyComment1 comment = MyCommentDAO.getDAO().selectComment(commentNo);
-
-//게시글번호를 전달받아 MYREPLY 테이블에 저장된 댓글목록을 검색하여 List 객체로 반환하는 DAO 클래스의 메소드 호출
-List<MyReply> replyList = MyCommentDAO.getDAO().selectCommentNoReplyList(commentNo);
+//게시글번호를 전달받아 MYCOMMENT 테이블에 저장된 게시글과 MYREPLY 테이블에 저장된 
+//댓글목록을 검색하여 DTO 객체로 반환하는 DAO 클래스의 메소드 호출
+MyCommentReply commentReply = MyCommentDAO.getDAO().selectCommentReply(commentNo);
 %>
 <!DOCTYPE html>
 <html>
@@ -64,19 +62,19 @@ td {
 	<table>
 		<tr>
 			<td width="200">게시글번호</td>
-			<td width="300"><%=comment.getCommentNo()%></td>
+			<td width="300"><%=commentReply.getComment().getCommentNo()%></td>
 		</tr>
 		<tr>
 			<td width="200">게시글작성자</td>
-			<td width="300"><%=comment.getCommentId()%></td>
+			<td width="300"><%=commentReply.getComment().getCommentId()%></td>
 		</tr>
 		<tr>
 			<td width="200">게시글내용</td>
-			<td width="300"><%=comment.getCommentContent()%></td>
+			<td width="300"><%=commentReply.getComment().getCommentContent()%></td>
 		</tr>
 		<tr>
 			<td width="200">게시글작성일</td>
-			<td width="300"><%=comment.getCommentDate()%></td>
+			<td width="300"><%=commentReply.getComment().getCommentDate()%></td>
 		</tr>
 	</table>
 	<br>
@@ -91,7 +89,7 @@ td {
 			<td class="comment">게시글번호</td>
 		</tr>
 		<%
-		if (replyList.isEmpty()) {
+		if (commentReply.getReplyList().isEmpty()) {
 		%>
 		<tr>
 			<td colspan="5">댓글이 존재하지 않습니다.</td>
@@ -100,7 +98,7 @@ td {
 		} else {
 		%>
 		<%
-		for (MyReply reply : replyList) {
+		for (MyReply reply : commentReply.getReplyList()) {
 		%>
 		<tr>
 			<td><%=reply.getReplyNo()%></td>
