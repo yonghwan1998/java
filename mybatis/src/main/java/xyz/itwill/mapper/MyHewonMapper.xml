@@ -214,7 +214,7 @@
 	<!-- 이름을 전달받지 못한 경우 MYHEWON 테이블에 저장된 모든 회원정보를 검색하여 검색결과를 객체로 제공하고 이름을 전달받은 
 		경우 MYHEWON 테이블에 저장된 해당 이름의 회원정보를 검색하여 검색결과를 객체로 제공하는 엘리먼트 -->
 	<!-- => 동적 SQL 기능을 사용하여 전달값에 따라 SQL 명령을 다르게 등록되어 사용되도록 설정 -->
-	<select id="selectDynamicHewonList" parameterType="string"
+	<select id="selectDynamicNameHewonList" parameterType="string"
 		resultMap="myHewonResultMap">
 		select hewon_id, hewon_name, hewon_phone, hewon_email, hewon_status
 		from myhewon
@@ -227,4 +227,9 @@
 		</if>
 		order by hewon_id
 	</select>
+
+	<!-- 아이디 또는 이름을 전달받지 못한 경우 MYHEWON 테이블에 저장된 모든 회원정보를 검색하여 검색결과를 객체로 제공하고 
+		아이디 또는 이름을 전달받은 경우 MYHEWON 테이블에 저장된 해당 아이디 또는 이름의 회원정보를 검색하여 검색결과를 객체로 제공하는 
+		엘리먼트 -->
+	<select id="selectDynamicHewonList"></select>
 </mapper>

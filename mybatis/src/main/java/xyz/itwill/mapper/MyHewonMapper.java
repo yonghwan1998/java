@@ -37,5 +37,5 @@ public interface MyHewonMapper {
 
 	List<MyHewon> selectNameHewonList(String name);
 
-	List<MyHewon> selectDynamicHewonList(String name);
+	List<MyHewon> selectDynamicNameHewonList(String name);
 }
