@@ -35,6 +35,6 @@ public interface MyHewonInterfaceMapper {
 	@Results(value = { @Result(column = "hewon_id", property = "id"), @Result(column = "hewon_name", property = "name"),
 			@Result(column = "hewon_phone", property = "phone"), @Result(column = "hewon_email", property = "email"),
 			@Result(column = "hewon_status", property = "status") })
-	@Select(value = "select * from myhewon where hewon_name=#{name} order by hewon_id")
+	@Select("select * from myhewon where hewon_name=#{name} order by hewon_id")
 	List<MyHewon> selectNameHewonList(String name);
 }
