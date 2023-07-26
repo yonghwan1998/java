@@ -13,7 +13,7 @@ public class FactoryMethodBean {
 		_bean = new FactoryMethodBean();
 	}
 
-	public static FactoryMethodBean getFactoryMehodBean() {
+	public static FactoryMethodBean getFactoryMethodBean() {
 		return _bean;
 	}
 }
