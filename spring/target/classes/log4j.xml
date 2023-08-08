@@ -45,7 +45,7 @@
 		</layout>
 	</appender>
 
-	<appender name="deilyLogFile"
+	<!-- <appender name="deilyLogFile"
 		class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="File" value="dailyLog" />
 		<param name="DatePattern" value=".yyyy-MM-dd" />
@@ -53,7 +53,7 @@
 			<param name="ConversionPattern"
 				value="[%d{HH:mm:ss}]%-5p : %c - %m%n" />
 		</layout>
-	</appender>
+	</appender> -->
 
 	<!-- Application Loggers -->
 	<!-- logger : 특정 패키지의 클래스에서 발생되는 로그 이벤트를 기록하기 위한 엘리먼트 -->
@@ -85,11 +85,11 @@
 	<!-- additivity 속성 : false 또는 true(기본값) 중 하나를 속성값으로 설정 -->
 	<!-- => 속성값이 [false]인 경우 root 엘리먼트의 Appender를 제공받아 사용하지 않도록 설정하고 [true]인 
 		경우에는 root 엘리먼트의 Appender를 제공받아 사용하도록 설정 -->
-	<logger name="xyz.itwill00.log" additivity="false">
+	<!-- <logger name="xyz.itwill00.log" additivity="false">
 		<level value="info" />
 		<appender-ref ref="helloLog" />
 		<appender-ref ref="deilyLogFile" />
-	</logger>
+	</logger> -->
 
 	<logger name="xyz.itwill05.lombok">
 		<level value="info" />
