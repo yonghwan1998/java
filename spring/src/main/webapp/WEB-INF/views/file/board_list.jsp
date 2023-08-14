@@ -20,6 +20,10 @@ th, td {
 <body>
 	<h1>자료실(출력페이지)</h1>
 	<hr>
+	<p>
+		<button type="button" onclick="location.href='<c:url value="/file/write"/>';">업로드</button>
+	</p>
+
 	<table>
 		<tr>
 			<th width="50">번호</th>
@@ -30,6 +34,7 @@ th, td {
 			<th width="100">삭제</th>
 		</tr>
 
+		<%-- 게시글 목록 출력 --%>
 		<c:forEach var="fileBoard" items="${fileBoardList }">
 			<tr>
 				<td align="center">${fileBoard.idx }</td>
@@ -46,13 +51,39 @@ th, td {
 		</c:forEach>
 	</table>
 
-	<p>
-		<button type="button" onclick="location.href='<c:url value="/file/write"/>';">업로드</button>
-	</p>
+	<%-- 페이지 번호 출력 --%>
+	<c:choose>
+		<c:when test="${pager.startPage > pager.blockSize }">
+			<a href="<c:url value="/file/list"/>?pageNum=${pager.prevPage}">[이전]</a>
+		</c:when>
+		<c:otherwise>
+			[이전]
+		</c:otherwise>
+	</c:choose>
+
+	<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+		<c:choose>
+			<c:when test="${pager.pageNum != i  }">
+				<a href="<c:url value="/file/list"/>?pageNum=${i}">[${i }]</a>
+			</c:when>
+			<c:otherwise>
+				[${i }]
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+
+	<c:choose>
+		<c:when test="${pager.endPage != pager.totalPage }">
+			<a href="<c:url value="/file/list"/>?pageNum=${pager.nextPage}">[다음]</a>
+		</c:when>
+		<c:otherwise>
+			[다음]
+		</c:otherwise>
+	</c:choose>
 
 	<script type="text/javascript">
 	function fileDownload(idx) { 
-		//질의문자열(QueryString)를 이용하여 자료실 번호 전달
+		//질의문자열를 이용하여 자료실 번호 전달
 		location.href="<c:url value="/file/download"/>?idx="+idx;
 	}
 	
