@@ -36,15 +36,19 @@
 		<%-- csrfInput : CSRF Token을 hidden 타입으로 서버에 전달하기 위한 태그 --%>
 		<sec:csrfInput />
 	</form>
-	<hr>
 	<%-- SPRING_SECURITY_LAST_EXCEPTION : Spring Security에 의해 마지막에 발생된 예외(Exception 객체)가 
 	세션의 속성값으로 저장된 세션의 속성명 --%>
 	<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+		<hr>
 		<%-- <h3 style="color: red;">아이디 또는 비밀번호가 맞지 않습니다.</h3> --%>
 		<h3 style="color: red;">${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message }</h3>
 		<%-- 예외가 저장된 세션의 속성값 삭제 --%>
 		<c:remove var="SPRING_SECURITY_LAST_EXCEPTION" />
 	</c:if>
+	<hr>
+	<h3>
+		<a href="<c:url value="/"/>">메인으로</a>
+	</h3>
 
 	<script type="text/javascript">
 		$("#loginForm").submit(function() {
