@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginController {
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/loginPage", method = RequestMethod.GET)
 	public String login() {
 		return "login_page";
+	}
+
+	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
+	public String accessDenied() {
+		return "access_denied";
 	}
 }
