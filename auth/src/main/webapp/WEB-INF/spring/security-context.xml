@@ -97,6 +97,8 @@
 	<!-- authorities 속성 : 권한(Role)를 속성값으로 설정 -->
 	<!-- => 권한은 ROLE 기반으로 설정 - 속성값은 ROLE_XXX 형식으로 설정 -->
 	<!-- => 사용자에게 다수의 권한을 제공할 경우 , 기호로 구분하여 등록 설정 가능 -->
+	<!-- 인증을 성공한 경우 Authentication Manager는 Spring Security 관련 세션(Security ContextHolder)에 
+		인증 및 인가 관련 정보(Authentication 객체)를 저장 -->
 	<!-- <authentication-manager> <authentication-provider> <user-service> <user 
 		name="abc123" password="{noop}123456" authorities="ROLE_USER"/> <user name="xyz789" 
 		password="{noop}123456" authorities="ROLE_USER, ROLE_MANAGER"/> <user name="opq456" 
@@ -109,13 +111,19 @@
 		경우 SQL 명령을 제공하지 않아도 기본적으로 제공되는 SQL 명령으로 인증 처리후 사용자 정보(UserDetails 객체)를 반환 -->
 	<!-- data-source-ref 속성 : Connection 객체를 제공하기 위한 DataSource 관련 클래스에 대한 Spring 
 		Bean의 식별자(beanName)을 속성값으로 설정 -->
+	<!-- users-by-username-query : 아이디를 전달받아 아이디(userid), 비밀번호(passwd), 활성화 
+		상태(enabled)를 검색하는 SELECT 명령을 속성값으로 설정 - 인증 처리 -->
+	<!-- authorities-by-username-query : 아이디를 전달받아 아이디, 권한을 검색하는 SELECT 명령을 
+		속성값으로 설정 - 인증 성공한 사용자에게 권한 제공 -->
 	<!-- password-encoder : 암호화 처리된 비밀번호를 비교하기 위한 기능을 제공하는 엘리먼트 -->
 	<!-- ref 속성 : PasswordEncoder 인터페이스를 상속받은 클래스에 대한 Spring Bean의 식별자(beanName)를 
 		속성값으로 설정 -->
 	<authentication-manager>
 		<authentication-provider>
-			<jdbc-user-service data-source-ref="dataSource" />
-			<password-encoder ref="customPasswordEncoder" />
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select userid, passwd, enabled from security_users where userid=?"
+				authorities-by-username-query="select userid, auth from security_auth where userid=?" />
+			<password-encoder ref="passwordEncoder" />
 		</authentication-provider>
 	</authentication-manager>
 
@@ -132,4 +140,8 @@
 	<beans:bean
 		class="xyz.itwill.security.CustomPasswordEncoder"
 		id="customPasswordEncoder" />
+	<!-- BCryptPasswordEncoder 클래스 : 문자열을 암호화 처리하거나 비교 결과를 제공하기 위한 클래스 -->
+	<beans:bean
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
+		id="passwordEncoder" />
 </beans:beans>
