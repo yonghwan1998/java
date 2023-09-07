@@ -35,8 +35,10 @@
 
 	<%-- 인증된 사용자인 경우 태그가 포함되도록 설정 --%>
 	<sec:authorize access="isAuthenticated()">
+		<%-- <h3><sec:authentication property="principal.username"/>님, 환영합니다.</h3> --%>
+		<%-- <h3><sec:authentication property="principal.userid"/>님, 환영합니다.</h3> --%>
 		<h3>
-			<sec:authentication property="principal.username" />
+			<sec:authentication property="principal.name" />
 			님, 환영합니다.
 		</h3>
 

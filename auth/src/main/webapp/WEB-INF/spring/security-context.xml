@@ -3,8 +3,10 @@
 	xmlns="http://www.springframework.org/schema/security"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- http : Spring Security 기능을 SpringMVC 프로그램에 적용하기 위한 정보를 제공하는 엘리먼트 -->
 	<!-- => Spring Security 관련 환경 설정이 시작되는 위치를 제공 -->
@@ -73,6 +75,19 @@
 		<logout logout-url="/logout" logout-success-url="/"
 			invalidate-session="true" delete-cookies="JSESSIONID" />
 
+		<!-- remember-me : 자동 로그인 기능을 제공하기 위한 엘리먼트 -->
+		<!-- => 사용자 인증 처리를 요청하기 전에 [remember-me] 이름의 쿠키를 검색하여 로그인 처리 -->
+		<!-- => [remember-me] 이름의 쿠키에는 자동 로그인 관련 토큰이 자동 생성되어 저장 -->
+		<!-- token-validity-seconds 속성 : 자동 로그인 기능을 유지하기 위한 시간(초)을 속성값으로 설정 -->
+		<!-- 쿠키에 자동 로그인 관련 토큰을 저장하는 보안상 위험하므로 DB에 자동 로그인 관련 토큰을 저장하여 사용하는 것을 권장 -->
+		<!-- => persistent_logins 테이블을 생성하여 자동 로그인 관련 정보 저정 -->
+		<!-- create table persistent_logins(serise varchar2(100) primary key, username 
+			varchar2(100) , token varchar2(100), last_used timestamp); -->
+		<!-- data-source-ref : persistent_logins 테이블이 저장된 DB 서버의 DataSource 객체의 
+			Spring BeanName을 속성값으로 설정 -->
+		<remember-me data-source-ref="dataSource"
+			token-validity-seconds="604800" />
+
 		<!-- access-denied-handler : AccessDeniedException 발생된 경우 403 에러코드를 전달하는 
 			대신 에러 메세지로 응답결과를 제공하기 위한 엘리먼트 -->
 		<!-- error-page 속성 : 403 에러코드 대신 응답될 페이지의 URL 주소를 속성값으로 설정 -->
@@ -118,14 +133,26 @@
 	<!-- password-encoder : 암호화 처리된 비밀번호를 비교하기 위한 기능을 제공하는 엘리먼트 -->
 	<!-- ref 속성 : PasswordEncoder 인터페이스를 상속받은 클래스에 대한 Spring Bean의 식별자(beanName)를 
 		속성값으로 설정 -->
+	<!-- <authentication-manager> <authentication-provider> <jdbc-user-service 
+		data-source-ref="dataSource" users-by-username-query="select userid, passwd, 
+		enabled from security_users where userid=?" authorities-by-username-query="select 
+		userid, auth from security_auth where userid=?"/> <password-encoder ref="passwordEncoder"/> 
+		</authentication-provider> </authentication-manager> -->
+
+	<!-- user-service-ref 속성 : 인증에 필요한 사용자 및 권한 정보(UserDetails 객체)가 저장된 객체를 
+		반환하는 클래스(CustomUserDetailsService 클래스)에 대한 Spring Bean의 식별자(beanName)를 속성값으로 
+		설정 -->
 	<authentication-manager>
-		<authentication-provider>
-			<jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="select userid, passwd, enabled from security_users where userid=?"
-				authorities-by-username-query="select userid, auth from security_auth where userid=?" />
+		<authentication-provider
+			user-service-ref="customUserDetailsService">
 			<password-encoder ref="passwordEncoder" />
 		</authentication-provider>
 	</authentication-manager>
+
+	<context:component-scan
+		base-package="xyz.itwill.repository" />
+	<context:component-scan
+		base-package="xyz.itwill.security" />
 
 	<!-- Spring Security 관련 클래스를 Spring Bean으로 등록 -->
 	<beans:bean
